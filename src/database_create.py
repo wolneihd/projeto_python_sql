@@ -23,7 +23,8 @@ class DatabaseManager:
         }
 
         # Obtém o caminho do arquivo SQL
-        self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'database.sql')
+        self.file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'database', 'script_database.sql'))
+        print(f"caminho do arquivo: {self.file_path}")
 
         # Lê o conteúdo do arquivo SQL
         self.sql_file = self.read_sql_file()

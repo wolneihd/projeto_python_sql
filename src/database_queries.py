@@ -23,21 +23,32 @@ class DatabaseQuery:
             'database': self.db_database
         }
 
-    def select_all_from_usuario(self):
+    def select_all_cars(self):
         self.conexao = mysql.connector.connect(**self.config)
         self.cursor = self.conexao.cursor()
-        self.cursor.execute('select * from usuario;')  
+        self.cursor.execute("""
+        select  
+        	carros.id,
+            fabricantes.fabricante,
+            cores.cor,
+            carros.placa,
+            date_format(carros.data_cadastro, '%d/%m/%y') as 'data_cadastro'    
+        	    from carros
+            INNER JOIN fabricantes ON carros.id_fabricante = fabricantes.id
+            INNER JOIN cores ON carros.id_cor = cores.id;
+        """)  
 
-        registros = self.cursor.fetchall()
-        newDict = []
-        for registro in registros:
-            newDict.append({"id": registro[0],"nome":registro[1]})
+        carros = self.cursor.fetchall()
+        all_cars = []
+        for carro in carros:
+            all_cars.append({"id": carro[0], "fabricante": carro[1], "cor": carro[2], "placa": carro[3], "data_cadastro": carro[4]})
+            print(all_cars)
 
         self.cursor.close()
         self.conexao.close()
-        return newDict
+        return all_cars
 
 if __name__ == "__main__":
     db_query = DatabaseQuery()
-    db_query.select_all_from_usuario()
+    db_query.select_all_cars()
 
