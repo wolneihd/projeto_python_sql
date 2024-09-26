@@ -1,0 +1,8 @@
+.cabecalho {
+  background-color: #679b53;
+  display: grid;
+  justify-content: center;
+  padding: 15px;
+  color: white;
+  border-bottom: 1px solid black;
+}

@@ -1,19 +1,12 @@
-### COMO RODAR O AMBIENTE
+### INFORMAÇÕES INICIAIS
 
-O projeto foi estrutura para rodar, preferencialmente, em ambiente virtual.
-Para roda-lo, fazer o seguinte comandos:
+1. Back-end desenvolvido em Python, com banco de dados em mySQL. Para ver como roda-lo, ler o README na pasta backend.
+2. Front-end desenvolvido em Angular.
 
-1. Criar e ativar o ambiente virtual:
-```
-pip install virtualenv
-virtualenv venv
-.\venv\Scripts\activate
-```
+### FUNCIONALIDADE
 
-2. Instalar as dependências necessárias: 
-```
-pip install -r requirements.txt
-```
-
-3. Setar as variáveis no .env
-4. Por último, rodar o arquivo *main.py*
+CRUD em banco de dados de um veículo:
+ - placa
+ - fabricante
+ - modelo
+ - cor
