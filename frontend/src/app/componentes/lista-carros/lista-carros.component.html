@@ -1,0 +1,30 @@
+<div class="lista">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fabricante</th>
+        <th>Cor</th>
+        <th>Placa</th>
+        <th>Data de Cadastro</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carro of data">
+        <td>{{ carro.id }}</td>
+        <td>{{ carro.fabricante }}</td>
+        <td>{{ carro.cor }}</td>
+        <td>{{ carro.placa }}</td>
+        <td>{{ carro.data_cadastro }}</td>
+        <td>
+          <mat-icon title="Editar">edit</mat-icon>
+        </td>
+        <td >
+          <mat-icon title="Excluir">delete</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

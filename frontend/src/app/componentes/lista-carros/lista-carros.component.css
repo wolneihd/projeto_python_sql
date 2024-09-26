@@ -1,0 +1,15 @@
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+tr:hover {
+  background-color: blue;
+  color: white;
+}
