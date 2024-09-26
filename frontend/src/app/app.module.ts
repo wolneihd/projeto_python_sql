@@ -7,12 +7,14 @@ import { ListaCarrosComponent } from './componentes/lista-carros/lista-carros.co
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatIconModule } from '@angular/material/icon'; // Importando MatIconModule
+import { MatIconModule } from '@angular/material/icon';
+import { InserirCarroComponent } from './componentes/inserir-carro/inserir-carro.component'; // Importando MatIconModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaCarrosComponent
+    ListaCarrosComponent,
+    InserirCarroComponent
   ],
   imports: [
     BrowserModule,

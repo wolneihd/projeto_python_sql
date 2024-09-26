@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/api-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 interface Carro {
   id: number,
@@ -16,6 +17,7 @@ interface Carro {
 })
 export class ListaCarrosComponent implements OnInit {
   data: Carro[] = [];
+  cores: any;
 
   constructor(private apiService: ApiService) { }
 
@@ -25,8 +27,8 @@ export class ListaCarrosComponent implements OnInit {
         this.data = response;  // Presumindo que a resposta já é um array de Carro
       },
       error => {
-        alert('Erro ao buscar dados' + error);
+        console.log('Erro ao buscar dados', error);
       }
     );
-}
+  }
 }

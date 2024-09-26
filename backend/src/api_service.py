@@ -14,6 +14,11 @@ class App:
         def get_all_users():
             # resultado = self.dbquery.select_all_from_usuario()
             return jsonify(self.dbquery.select_all_cars())
+        
+        @self.app.route('/cores', methods=['GET'])
+        def get_all_colors():
+            resultado = self.dbquery.buscarTodasCores()
+            return jsonify(resultado)
 
     def run(self):
         self.app.run(port=5000, host='localhost', debug=True)

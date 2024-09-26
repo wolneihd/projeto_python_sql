@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:5000/'; // Substitua pela URL da API desejada
+  private todosCarros = 'http://localhost:5000/'; // Substitua pela URL da API desejada
+  private todasCores =  'http://localhost:5000/cores'
 
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(this.todosCarros);
   }
 }

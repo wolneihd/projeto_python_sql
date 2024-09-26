@@ -42,13 +42,28 @@ class DatabaseQuery:
         all_cars = []
         for carro in carros:
             all_cars.append({"id": carro[0], "fabricante": carro[1], "cor": carro[2], "placa": carro[3], "data_cadastro": carro[4]})
-            print(all_cars)
-
+        print(all_cars)
         self.cursor.close()
         self.conexao.close()
         return all_cars
+    
+    def buscarTodasCores(self):
+        self.conexao = mysql.connector.connect(**self.config)
+        self.cursor = self.conexao.cursor()
+        self.cursor.execute("select id, cor from cores;") 
+
+        cores = self.cursor.fetchall()
+        lista_cores = []
+        for cor in cores:
+            lista_cores.append({"id": cor[0], "cor": cor[1]})
+        print(lista_cores)
+        
+        self.cursor.close()
+        self.conexao.close()
+        return lista_cores
 
 if __name__ == "__main__":
     db_query = DatabaseQuery()
-    db_query.select_all_cars()
+    # db_query.select_all_cars()
+    db_query.select_all_colors()
 
